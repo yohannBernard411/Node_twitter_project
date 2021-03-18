@@ -1,6 +1,6 @@
 module.exports = {
   apps : [{
-    name: 'twitter',
+    name: 'projet_twitter',
     script: './bin/www',
     instances: 'max',
     autorestart: true,
@@ -13,3 +13,4 @@ module.exports = {
     }
   }]
 };
+
