@@ -60,11 +60,4 @@ class Email {
 
 }
 
-
-
-
-
-
-
-
 module.exports = new Email();

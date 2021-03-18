@@ -13,9 +13,6 @@ const upload = multer({
   })
 })
 const emailFactory = require('../emails');
-console.log('debutdebutdebutdebutdebutdebut');
-console.log(emailFactory);
-console.log('finfinfinfinfinfinfinfinfinfin');
 const moment = require('moment');
 const { v4: uuidv4 } = require('uuid');
 const User = require('../database/models/user.model');
@@ -63,6 +60,7 @@ exports.signup = async (req, res, next) => {
       userId: user._id,
       token: user.local.emailToken
     });
+    console.log('Send mail without issue');
     res.redirect('/');
   }catch(e){
     res.render('users/user-form', { errors: [e.message], isAuthenticated: req.isAuthenticated(), currentUser: req.user });
