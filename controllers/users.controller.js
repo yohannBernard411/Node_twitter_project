@@ -13,6 +13,9 @@ const upload = multer({
   })
 })
 const emailFactory = require('../emails');
+console.log('debutdebutdebutdebutdebutdebut');
+console.log(emailFactory);
+console.log('finfinfinfinfinfinfinfinfinfin');
 const moment = require('moment');
 const { v4: uuidv4 } = require('uuid');
 const User = require('../database/models/user.model');
