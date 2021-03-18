@@ -8,5 +8,6 @@ mongoose.connect(env.dbUrl, { useNewUrlParser: true, useUnifiedTopology: true })
           console.log('Connection DB twitter ok!');
         })
         .catch( (err) => {
+          console.log('attention la il y a un probleme de connexion db!!!!');
           console.log(err);
         })

@@ -3,9 +3,7 @@ const { v4: uuidv4 } = require('uuid');
 
 exports.createUser = async (user) => {
   try{
-    console.log('etape1');
     const hashedPassword = await User.hashedPassword(user.password);
-    console.log('etape2');
     const newUser = new User({
       username: user.username,
       local: {
@@ -14,10 +12,8 @@ exports.createUser = async (user) => {
         emailToken: uuidv4()
       }
     })
-    console.log('etape3');
     return newUser.save();
   }catch(e){
-    console.log('etape4');
     throw e;
   }
 }

@@ -52,6 +52,7 @@ exports.signup = async (req, res, next) => {
   const body = req.body;
   try{
     const user = await createUser(body);
+    console.log('User create whithout issue!');
     emailFactory.sendEmailVerification({
       to: user.local.email,
       host: req.headers.host,
