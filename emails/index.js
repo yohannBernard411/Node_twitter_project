@@ -24,6 +24,10 @@ class Email {
   }
 
   async sendEmailVerification(options) {
+    console.log('from: ', this.from);
+    console.log('to: ', options.to);
+    console.log('username: ', options.username);
+    console.log(`url: https://${ options.host }/users/email-verification/${ options.userId }/${ options.token } `)
     try{
       const email = {
         from: this.from,
@@ -35,7 +39,7 @@ class Email {
         })
       };
       const response = await this.transporter.sendMail(email);
-      console.log(response);
+      console.log('response( send mail response): ',response);
     }catch(e){
       throw e;
     }
