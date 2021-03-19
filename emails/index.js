@@ -8,8 +8,8 @@ class Email {
     this.from = 'Yohann Project <contact@yohann-project.site>';
     if (process.env.NODE_ENV === "production") {
       this.transporter = nodemailer.createTransport(sparkPostTransporter({
-        sparkPostApiKey: 'ae28b464c1a73d51dd34bb2828d72e3bbe897987',
-        endpoint: 'https://api.eu.sparkpost.com'
+        Authorization: 'ae28b464c1a73d51dd34bb2828d72e3bbe897987',
+        endpoint: 'https://api.eu.sparkpost.com/api/v1'
       }))
     }else {
       this.transporter = nodemailer.createTransport({
