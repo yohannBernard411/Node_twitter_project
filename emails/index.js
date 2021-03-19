@@ -2,13 +2,14 @@ const nodemailer = require('nodemailer');
 const sparkPostTransporter = require('nodemailer-sparkpost-transport');
 const path = require('path');
 const pug = require('pug');
+const env = require(`../environment/${ process.env.NODE_ENV }`);
 
 class Email {
   constructor() {
     this.from = 'Yohann Project <contact@yohann-project.site>';
     if (process.env.NODE_ENV === "production") {
       this.transporter = nodemailer.createTransport(sparkPostTransporter({
-        sparkPostApiKey: '803e076140c335d74207d45cbef16b68dc146999',
+        sparkPostApiKey: env.sparkPostApiKey,
         endpoint: 'https://api.eu.sparkpost.com/api/v1'
       }))
     }else {
