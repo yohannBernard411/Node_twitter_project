@@ -10,8 +10,8 @@ class Email {
     if (process.env.NODE_ENV === "production") {
       this.transporter = nodemailer.createTransport(sparkPostTransporter({
         sparkPostApiKey: env.sparkPostApiKey,
-        endpoint: 'https://api.eu.sparkpost.com/api/v1'
-      }))
+        endpoint: 'https://api.eu.sparkpost.com'
+      }));
     }else {
       this.transporter = nodemailer.createTransport({
         host: "smtp.mailtrap.io",
@@ -25,10 +25,6 @@ class Email {
   }
 
   async sendEmailVerification(options) {
-    console.log('from: ', this.from);
-    console.log('to: ', options.to);
-    console.log('username: ', options.username);
-    console.log(`url: https://${ options.host }/users/email-verification/${ options.userId }/${ options.token } `)
     try{
       const email = {
         from: this.from,
@@ -40,7 +36,6 @@ class Email {
         })
       };
       const response = await this.transporter.sendMail(email);
-      console.log('response( send mail response): ',response);
     }catch(e){
       throw e;
     }

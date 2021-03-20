@@ -52,12 +52,6 @@ exports.signup = async (req, res, next) => {
   const body = req.body;
   try{
     const user = await createUser(body);
-    console.log('User create whithout issue!');
-    console.log('user.local.email: ',user.local.email);
-    console.log('host: ', req.headers.host);
-    console.log('username: ', user.username);
-    console.log('userId: ', user._id);
-    console.log('token: ', user.local.emailToken);
     emailFactory.sendEmailVerification({
       to: user.local.email,
       host: req.headers.host,
