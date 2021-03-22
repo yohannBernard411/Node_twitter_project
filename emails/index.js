@@ -8,6 +8,7 @@ class Email {
   constructor() {
     this.from = 'Yohann Project <contact@yohann-project.site>';
     if (process.env.NODE_ENV === "production") {
+      console.log('api key a verifier: ', env.sparkPostApiKey);
       this.transporter = nodemailer.createTransport(sparkPostTransporter({
         sparkPostApiKey: env.sparkPostApiKey,
         endpoint: 'https://api.eu.sparkpost.com'
